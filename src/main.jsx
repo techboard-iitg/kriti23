@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import Schedule from "./routes/schedule";
 
 const router = createBrowserRouter([
   {
@@ -11,11 +12,15 @@ const router = createBrowserRouter([
         <ul>
           <li>
             <a href='/home'>Home Page</a>{" "}
-            <a href='/scheduke'>Schedule Page</a>{" "}
+            <a href='/schedule'>Schedule Page</a>{" "}
           </li>
         </ul>
       </div>
     ),
+  },
+  {
+    path: "/schedule",
+    element: <Schedule />,
   },
 ]);
 
