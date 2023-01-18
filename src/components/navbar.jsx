@@ -9,7 +9,7 @@ import TechboardLogo from "../assets/techboard-logo.svg";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Schedule", href: "/schedule" },
-  { name: "Points Table", href: "/table" },
+  { name: "Points Table", href: "/points-table" },
   { name: "Team", href: "/team" },
 ];
 
