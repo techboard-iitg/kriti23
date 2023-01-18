@@ -38,6 +38,10 @@ const router = createBrowserRouter([
     // errorElement: <ErrorPage />,
   },
   {
+    path: "/problem-statement",
+    element: <ProblemStatement />,
+  },
+  {
     path: "/team",
     element: <Team />,
     // errorElement: <ErrorPage />,
