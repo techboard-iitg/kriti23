@@ -71,7 +71,9 @@ const Team = () => {
   }, []);
   return (
     <div className='min-h-screen bg-customBlue-100 flex flex-col'>
-      <Navbar />
+      <div className="sticky top-0 z-10">
+        <Navbar />
+      </div>
       <div className='flex-1'>
         <div className='my-20 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
           <div className='relative flex flex-col items-start justify-between'>

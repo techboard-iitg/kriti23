@@ -6,6 +6,7 @@ import ErrorPage from "./routes/error-page";
 import Team from "./routes/team";
 import Schedule from "./routes/schedule";
 import PointsTable from "./routes/points_table";
+import ProblemStatement from "./routes/problem-statement";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       </div>
     ),
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/problem-statement",
+    element: <ProblemStatement />
   },
   {
     path: "/team",

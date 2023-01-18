@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 import KritiLogo from "../assets/kriti-logo.svg";
 import TechboardLogo from "../assets/techboard-logo.svg";
 
-
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "Problem Statement", href: "/problem-statement" },
   { name: "Schedule", href: "/schedule" },
   { name: "Points Table", href: "/table" },
   { name: "Team", href: "/team" },
