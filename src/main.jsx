@@ -39,6 +39,10 @@ const router = createBrowserRouter([
     path: "/schedule",
     element: <Schedule />,
   },
+  {
+    path: "/points-table",
+    element: <PointsTable/>,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
