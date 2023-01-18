@@ -5,69 +5,6 @@ import TeamComponent from "../components/team-component";
 import sanityClient from "../client";
 
 const Team = () => {
-  const fetchedData = [
-    {
-      image:
-        "https://www.shutterstock.com/image-photo/happy-young-indian-woman-blogger-600w-1606121245.jpg",
-      first: "General Secretary",
-      second: "Technical Board",
-      third: "Shrey Jain",
-      forth: "1234567890",
-      fifth: "loremipsum@iitg.ac.in",
-      index: 1,
-    },
-    {
-      image:
-        "https://www.shutterstock.com/image-photo/happy-young-indian-woman-blogger-600w-1606121245.jpg",
-      first: "General Secretary",
-      second: "Technical Board",
-      third: "Shrey Jain",
-      forth: "1234567890",
-      fifth: "loremipsum@iitg.ac.in",
-      index: 2,
-    },
-    {
-      image:
-        "https://www.shutterstock.com/image-photo/happy-young-indian-woman-blogger-600w-1606121245.jpg",
-      first: "General Secretary",
-      second: "Technical Board",
-      third: "Shrey Jain",
-      forth: "1234567890",
-      fifth: "loremipsum@iitg.ac.in",
-      index: 3,
-    },
-    {
-      image:
-        "https://www.shutterstock.com/image-photo/happy-young-indian-woman-blogger-600w-1606121245.jpg",
-      first: "General Secretary",
-      second: "Technical Board",
-      third: "Shrey Jain",
-      forth: "1234567890",
-      fifth: "loremipsum@iitg.ac.in",
-      index: 4,
-    },
-    {
-      image:
-        "https://www.shutterstock.com/image-photo/happy-young-indian-woman-blogger-600w-1606121245.jpg",
-      first: "General Secretary",
-      second: "Technical Board",
-      third: "Shrey Jain",
-      forth: "1234567890",
-      fifth: "loremipsum@iitg.ac.in",
-      index: 5,
-    },
-    {
-      image:
-        "https://www.shutterstock.com/image-photo/happy-young-indian-woman-blogger-600w-1606121245.jpg",
-      first: "General Secretary",
-      second: "Technical Board",
-      third: "Shrey Jain",
-      forth: "1234567890",
-      fifth: "loremipsum@iitg.ac.in",
-      index: 6,
-    },
-  ];
-
   const [team, setTeam] = useState();
 
     useEffect(() => {
