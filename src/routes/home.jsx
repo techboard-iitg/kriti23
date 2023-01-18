@@ -6,12 +6,24 @@ import { Link } from "react-router-dom";
 import moment from 'moment';
 import homeImage from "../assets/Frame1.jpg";
 import KritiLogo from "../assets/kriti-logo.svg"
+import TechboardLogo from "../assets/techboard-logo.svg"
 import { Parallax, Background } from "react-parallax";
 
 export default function Home() {
 
     const [hostels, setHostels] = useState();
     const [schedule, setSchedule] = useState();
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
+    useEffect(() =>{
+        const changeWidth = () => {
+        setScreenWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', changeWidth)
+        return () => {
+            window.removeEventListener('resize', changeWidth)
+        }
+    },[])
 
     useEffect(() => {
         sanityClient
@@ -78,7 +90,7 @@ export default function Home() {
     const insideStyles = {
         padding: 20,
         position: "absolute",
-        top: "15%",
+        top: "28%",
         left: "10%",
         fontWeight:'bold',
         color:'white',
@@ -88,7 +100,7 @@ export default function Home() {
     return (
         <div className=' bg-customBlue-100 flex flex-col'>.
             <div>
-                <Parallax bgImage={homeImage} strength={500} style={{margin:'-33px'}}>
+                <Parallax bgImage={homeImage} strength={500} style={{marginTop:'-33px', height:'102vh', width:'98.88vw'}}>
                 <div style={{ height: 500 }}>
                     <div style={insideStyles}>
                         <img src = {KritiLogo} style={{height:'250px'}} alt='kriti' />
@@ -104,6 +116,39 @@ export default function Home() {
             <hr className="border-customBlue-200 border-b-4" style={{zIndex:'1'}} />
             <Navbar />
             <div style={{ margin: "3%" }} >
+                {(screenWidth > 750) &&
+                <div className="flex">
+                    <img src={TechboardLogo} style={{height:'25vh', marginRight:'3%'}}/>
+                    <div>
+                        <h1 className="text-4xl customBlue-300 font-bold">ABOUT:</h1>
+                        <br/>
+                        <h3 className="text-1xl customBlue-300 font-bold">13 hostels, 30 days, 1 title!</h3>
+                        <p>The inter hostel technical and management festival where nous and creativity are ones only saviors. 
+                            With a conflux of competitions from Robotics, Product Design, Finance and Management, Marketing Strategy, Quizzes, Astronomy and Gaming, 
+                            this fest has been successful in uniting people from each year and department, besides inculcating the hostel spirit. 
+                            The hostel which ranks first after considering the performances in each event is tagged as the:<br/>
+                            <span className="text-customOrange-100 font-bold">"Kriti Champions"</span>
+                        </p>
+                    </div>
+                </div>
+                }
+
+                {(screenWidth <= 750) &&
+                <div style={{diplay:'flex', justifyContent:'space-between', flexWrap:'wrap'}}>
+                    <div>
+                        <h1 className="text-4xl customBlue-300 font-bold">ABOUT:</h1>
+                        <br/>
+                        <h3 className="text-1xl customBlue-300 font-bold">13 hostels, 30 days, 1 title!</h3>
+                        <p>The inter hostel technical and management festival where nous and creativity are ones only saviors. 
+                            With a conflux of competitions from Robotics, Product Design, Finance and Management, Marketing Strategy, Quizzes, Astronomy and Gaming, 
+                            this fest has been successful in uniting people from each year and department, besides inculcating the hostel spirit. 
+                            The hostel which ranks first after considering the performances in each event is tagged as the:<br/>
+                            <span className="text-customOrange-100 font-bold">"Kriti Champions"</span>
+                        </p>
+                    </div>
+                </div>
+                }
+                <br/><br/><br/>
                 <h1 className="text-3xl customBlue-300 font-bold">Upcoming Events</h1>
                 <br/>
                 <table style={{borderStyle: "solid", borderColor: "#032538", borderWidth:2, borderRadius: 1}} className="min-w-full">
@@ -183,6 +228,8 @@ export default function Home() {
                 <Link to="/points-table" style={{color: '#4A6CB2', textDecoration:'underline'}}>
                     View All
                 </Link>
+                <br/><br/><br/>
+                
             </div>
             <Footer />
         </div>

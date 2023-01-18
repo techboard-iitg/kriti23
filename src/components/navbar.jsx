@@ -19,6 +19,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
+    <div style={{position:'sticky', top:'0px'}}>
     <Disclosure as='nav' className='bg-white border-customBlue-200 border-b-4' style={{zIndex:'1'}}>
       {({ open }) => (
         <>
@@ -100,5 +101,6 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
+    </div>
   );
 }

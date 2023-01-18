@@ -5,7 +5,7 @@ import InstagramIcon from "../assets/instagram-logo.svg";
 
 const Footer = () => {
   return (
-    <div className='grid place-content-center justify-items-center gap-4 py-4 px-4 bg-customBlue-300 text-white text-center'>
+    <div style={{top:'min(50px, 100%)'}} className='grid place-content-center justify-items-center gap-4 py-4 px-4 bg-customBlue-300 text-white text-center'>
       <div className='text-2xl font-light pb-6'>
         "<span className='font-semibold'>Competition</span>
         <span className='italic'> makes us Faster. </span>{" "}
