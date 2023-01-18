@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ErrorPage from "./routes/error-page";
 import Team from "./routes/team";
+import Schedule from "./routes/schedule";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
             <a href='/team'>Team Page</a>
           </li>
           <li>
-            <a href='/scheduke'>Schedule Page</a>
+            <a href='/schedule'>Schedule Page</a>
           </li>
         </ul>
       </div>
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     path: "/team",
     element: <Team />,
     // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/schedule",
+    element: <Schedule />,
   },
 ]);
 

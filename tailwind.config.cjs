@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      tableCellBorder: '#4A6CB2',
+      tableBorder: '#032538',
+    },
   },
   plugins: [],
 }
