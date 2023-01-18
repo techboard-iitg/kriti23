@@ -5,6 +5,7 @@ import "./index.css";
 import ErrorPage from "./routes/error-page";
 import Team from "./routes/team";
 import Schedule from "./routes/schedule";
+import PointsTable from "./routes/points_table";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,9 @@ const router = createBrowserRouter([
           <li>
             <a href='/schedule'>Schedule Page</a>
           </li>
+          <li>
+            <a href='/points-table'>Points Table</a>
+          </li>
         </ul>
       </div>
     ),
@@ -34,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/schedule",
     element: <Schedule />,
+  },
+  {
+    path: "/points-table",
+    element: <PointsTable/>,
   },
 ]);
 

@@ -3,7 +3,7 @@ import sanityClient from "../client";
 import moment from 'moment'
 
 
-export default function Schedule() {
+export default function PointsTable() {
 
   const [schedule, setSchedule] = useState();
 
