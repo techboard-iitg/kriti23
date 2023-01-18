@@ -24,19 +24,19 @@ export default function Schedule() {
                   </th>
                 </tr>
               </thead>
-              <tbody  className="divide-y divide-tableCellBorder">
+              <tbody  className="divide-y divide-customBlue-200">
                 <tr>
-                  <td className="px-6 py-4 text-base font-medium text-tableBorder whitespace-nowrap">General Quiz</td>
-                  <td className="px-6 py-4 text-base font-medium text-tableBorder whitespace-nowrap">12th February</td>
-                  <td className="px-6 py-4 text-base font-medium text-tableBorder whitespace-nowrap">Brainiac</td>
-                  <td className="py-4 text-base font-medium text-tableBorder whitespace-nowrap">200</td>
+                  <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">General Quiz</td>
+                  <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">12th February</td>
+                  <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">Brainiac</td>
+                  <td className="py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">200</td>
                 </tr>
 
                 <tr>
-                  <td className="px-6 py-4 text-base font-medium text-tableBorder whitespace-nowrap">General Quiz</td>
-                  <td className="px-6 py-4 text-base font-medium text-tableBorder whitespace-nowrap">12th February</td>
-                  <td className="px-6 py-4 text-base font-medium text-tableBorder whitespace-nowrap">Brainiac</td>
-                  <td className="py-4 text-base font-medium text-tableBorder whitespace-nowrap">200</td>
+                  <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">General Quiz</td>
+                  <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">12th February</td>
+                  <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">Brainiac</td>
+                  <td className="py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">200</td>
                 </tr>
                 
               </tbody>

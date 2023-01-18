@@ -19,7 +19,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as='nav' className='bg-white border-[#4B69B1] border-b-4'>
+    <Disclosure as='nav' className='bg-white border-customBlue-200 border-b-4'>
       {({ open }) => (
         <>
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
@@ -44,7 +44,7 @@ export default function Navbar() {
                     alt='kriti'
                   />
                   <img
-                    className='block h-8 w-auto sm:hidden border-l-2 border-[#4B69B1] pl-2 mr-2'
+                    className='block h-8 w-auto sm:hidden border-l-2 border-customBlue-200 pl-2 mr-2'
                     src={TechboardLogo}
                     alt='techboard'
                   />
@@ -58,8 +58,8 @@ export default function Navbar() {
                         className={({ isActive }) =>
                           classNames(
                             isActive
-                              ? "bg-[#032538] text-white "
-                              : "text-[#032538] hover:bg-gray-700 my-0 hover:text-white",
+                              ? "bg-customBlue-300 text-white "
+                              : "text-customBlue-300 hover:bg-gray-700 my-0 hover:text-white",
                             "px-3 py-2 text-sm font-medium "
                           )
                         }
@@ -85,8 +85,8 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     classNames(
                       isActive
-                        ? "bg-[#032538] text-white"
-                        : "text-[#032538] hover:bg-gray-700 hover:text-white",
+                        ? "bg-customBlue-300 text-white"
+                        : "text-customBlue-300 hover:bg-gray-700 hover:text-white",
                       "block px-3 py-2 text-base font-medium"
                     )
                   }
