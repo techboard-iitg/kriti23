@@ -11,6 +11,7 @@ const router = createBrowserRouter([
         <ul>
           <li>
             <a href='/home'>Home Page</a>{" "}
+            <a href='/events-page'>Events Page</a>{" "}
           </li>
         </ul>
       </div>
