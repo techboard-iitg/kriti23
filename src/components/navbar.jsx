@@ -6,10 +6,10 @@ import KritiLogo from "../assets/kriti-logo.svg";
 import TechboardLogo from "../assets/techboard-logo.svg";
 
 const navigation = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "/home" },
   { name: "Problem Statement", href: "/problem-statement" },
   { name: "Schedule", href: "/schedule" },
-  { name: "Points Table", href: "/table" },
+  { name: "Points Table", href: "/points-table" },
   { name: "Team", href: "/team" },
 ];
 
@@ -19,7 +19,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as='nav' className='bg-white border-customBlue-200 border-b-4'>
+    <Disclosure as='nav' className='bg-white border-customBlue-200 border-b-4' style={{zIndex:'1'}}>
       {({ open }) => (
         <>
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>

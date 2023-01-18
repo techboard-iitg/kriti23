@@ -7,6 +7,7 @@ import Team from "./routes/team";
 import Schedule from "./routes/schedule";
 import PointsTable from "./routes/points_table";
 import ProblemStatement from "./routes/problem-statement";
+import Home from "./routes/home"
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/problem-statement",
-    element: <ProblemStatement />
+    path: "/home",
+    element: <Home />,
+    // errorElement: <ErrorPage />,
   },
   {
     path: "/team",

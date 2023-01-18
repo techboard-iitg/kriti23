@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
-import moment from 'moment'
+import moment from 'moment';
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
 
 
 export default function Schedule() {
@@ -30,10 +32,12 @@ export default function Schedule() {
       return 0;
   }
     return (
+      <div className='min-h-screen bg-customBlue-100 flex flex-col'>
+        <Navbar />
         <div style={{margin:"3%"}}>
             <h1 className="text-3xl customBlue-300 font-bold">Event Dates - KRITI (2023) :-</h1>
             <br/>
-            <table style={{borderStyle: "solid", borderColor: "#032538", borderWidth: 1, borderRadius: 1}} className="min-w-full">
+            <table style={{borderStyle: "solid", borderColor: "#032538", borderWidth: 2, borderRadius: 1}} className="min-w-full">
               <thead style={{backgroundColor: "#032538", color: "#EFEFEF"}}>
                 <tr>
                   <th scope="col" className="px-6 py-4 text-base font-bold text-left uppercase ">
@@ -68,6 +72,7 @@ export default function Schedule() {
               </tbody>
             </table>
         </div>
-
+        <Footer />
+      </div>
     );
 }

@@ -33,6 +33,11 @@ export default {
         type: 'string',
         title: 'Email'
       },
+      {
+        name: 'idx',
+        type: 'number',
+        title: 'Index'
+      }
 
     ]
 }
