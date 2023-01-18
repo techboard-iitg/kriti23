@@ -55,7 +55,7 @@ export default function PointsTable() {
         <div style={{ margin: "3%" }} >
             <h1 className="text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>
             <br />
-            <table style={{ borderStyle: "solid", borderColor: "#032538", borderWidth: 1, borderRadius: 1 }} className="min-w-full">
+            <table style={{ borderStyle: "solid", borderColor: "#032538", borderWidth: 2, borderRadius: 1 }} className="min-w-full">
                 <thead style={{ backgroundColor: "#032538", color: "#EFEFEF" }}>
                     <tr>
                         <th scope="col" className="px-6 py-4 text-base font-bold text-left uppercase ">
