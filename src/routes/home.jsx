@@ -8,6 +8,7 @@ import homeImage from "../assets/Frame1.jpg";
 import KritiLogo from "../assets/kriti-logo.svg"
 import TechboardLogo from "../assets/techboard-logo.svg"
 import { Parallax, Background } from "react-parallax";
+import PSHomeComponent from "../components/ps-home-component ";
 
 export default function Home() {
 
@@ -24,6 +25,15 @@ export default function Home() {
             window.removeEventListener('resize', changeWidth)
         }
     },[])
+
+    const data = [
+        {
+            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
+            title: "Hostel 1",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            link: "/hostel1"
+        }
+    ]
 
     useEffect(() => {
         sanityClient
@@ -229,6 +239,12 @@ export default function Home() {
                     View All
                 </Link>
                 <br/><br/><br/>
+
+                {data.map((item, index) => {
+                    return <PSHomeComponent item={item} key={index}/>
+                })}
+
+
                 
             </div>
             <Footer />
