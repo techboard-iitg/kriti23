@@ -7,10 +7,10 @@ import TechboardLogo from "../assets/techboard-logo.svg";
 
 const navigation = [
   { name: "Home", href: "/home" },
-  { name: "Problem Statement", href: "/problem-statement" },
+  { name: "Problem Statements", href: "/problem-statement" },
   { name: "Schedule", href: "/schedule" },
   { name: "Points Table", href: "/points-table" },
-  { name: "Team", href: "/team" },
+  { name: "Team", href: "/team" },  
 ];
 
 function classNames(...classes) {

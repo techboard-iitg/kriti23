@@ -12,30 +12,30 @@ import Home from "./routes/home"
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div className='text-blue-500 grid place-content-center text-4xl h-screen'>
-        <ul className='grid gap-4'>
-          <li>
-            <a href='/home'>Home Page</a>
-          </li>
-          <li>
-            <a href='/team'>Team Page</a>
-          </li>
-          <li>
-            <a href='/schedule'>Schedule Page</a>
-          </li>
-          <li>
-            <a href='/points-table'>Points Table</a>
-          </li>
-        </ul>
-      </div>
-    ),
+    element: <Home />,
+    // element: (
+    //   <div className='text-blue-500 grid place-content-center text-4xl h-screen'>
+    //     <ul className='grid gap-4'>
+    //       <li>
+    //         <a href='/home'>Home Page</a>
+    //       </li>
+    //       <li>
+    //         <a href='/team'>Team Page</a>
+    //       </li>
+    //       <li>
+    //         <a href='/schedule'>Schedule Page</a>
+    //       </li>
+    //       <li>
+    //         <a href='/points-table'>Points Table</a>
+    //       </li>
+    //     </ul>
+    //   </div>
+    // ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/home",
     element: <Home />,
-    // errorElement: <ErrorPage />,
   },
   {
     path: "/problem-statement",
