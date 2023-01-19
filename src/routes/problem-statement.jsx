@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import ProblemStatementImage from "../assets/problem-statement.png";
-import PSComponent from "../components/ps-component";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import "./scrollbar-hide.css";
 import DownArrow from "../assets/down-arrow.svg";
 import sanityClient from "../client";
+import PSCup from "../components/ps-cup";
 
 const ProblemStatement = () => {
   const cupsName = ["Brainiac Cup", "Visionary Cup", "Da Vinci Cup", "Business Cup"];
@@ -16,10 +15,12 @@ const ProblemStatement = () => {
   const [business, setBusiness] = useState();
   const [visionary, setVisionary] = useState();
 
+
+
   useEffect(() => {
     sanityClient
         .fetch(
-            `*[_type == "BrainiacCup"]{
+            `*[_type == "brainiac_cup"]{
                 club_name,
                 hoste_points,
                 ps_link,
@@ -32,7 +33,7 @@ const ProblemStatement = () => {
         .catch(console.error);
       sanityClient
         .fetch(
-            `*[_type == "BusinessCup"]{
+            `*[_type == "business_cup"]{
                 club_name,
                 hoste_points,
                 ps_link,
@@ -45,7 +46,7 @@ const ProblemStatement = () => {
         .catch(console.error);
       sanityClient
         .fetch(
-            `*[_type == "VisionaryCup"]{
+            `*[_type == "visionary_cup"]{
                 club_name,
                 hoste_points,
                 ps_link,
@@ -59,7 +60,7 @@ const ProblemStatement = () => {
 
       sanityClient
         .fetch(
-            `*[_type == "DaVinciCup"]{
+            `*[_type == "daVinci_cup"]{
                 club_name,
                 hoste_points,
                 ps_link,
@@ -72,155 +73,12 @@ const ProblemStatement = () => {
         .catch(console.error);
   }, []);
 
-  const allProblemStatements = [
-    brainiac, visionary, daVinci, business
-  ]
-
-  // const allProblemStatements = [
-  //   [
-  //     {
-  //       club: "Aeromodelling",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement is the most interesting ps",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 2",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 3",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 4",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 5",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       club: "IITG.Ai Brainiac",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       club: "Aeromodelling",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       club: "IITG.Ai - Non Brainiac",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       club: "Aeromodelling",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       club: "IITG.Ai - Non Brainiac",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       club: "Aeromodelling",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       club: "IITG.Ai - Non Brainiac",
-  //       problemStatements: [
-  //         {
-  //           title: "Problem Statement 1",
-  //           date: "12/02/23",
-  //           link: "https://www.google.com",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // ];
   return (
     <div className='min-h-screen bg-customBlue-100 flex flex-col max-w-[100vw] overflow-hidden'>
       <div className='sticky top-0 z-10'>
         <Navbar />
       </div>
+      {console.log(brainiac)}
       <div className='flex-1'>
         <div
           style={{
@@ -291,78 +149,34 @@ const ProblemStatement = () => {
         <div className='bg-customBlue-100 my-10 max-w-[100vw]'>
           <div className='sm:ml-32 ml-4 px-2 sm:px-6 lg:px-8'>
             <div className='flex flex-col items-start justify-between ml-5 gap-10 overflow-hidden'>
-              {allProblemStatements[selectedCup].map((item, index) => {
-                return (
-                  <div
-                    key={index}
-                    className='flex items-center gap-10 justify-between w-full relative'
-                  >
-                    <div className='text-customBlue-300 text-3xl font-semibold py-4'>
-                      {item.club_name}
-                    </div>
-                    <ul
-                      className='flex gap-6 items-center overflow-x-scroll flex-1 scrollbar-hide'
-                      id={`scrollbar-${index}`}
-                      onScroll={(e) => {
-                        if (
-                          Math.abs(
-                            e.currentTarget.offsetWidth +
-                              e.currentTarget.scrollLeft -
-                              e.currentTarget.scrollWidth
-                          ) < 10
-                        ) {
-                          document.getElementById(
-                            `scrollbutton-${index}`
-                          ).style.opacity = 0;
-                          setTimeout(() => {
-                            document.getElementById(
-                              `scrollbutton-${index}`
-                            ).style.display = "none";
-                          }, 150);
-                        } else {
-                          document.getElementById(
-                            `scrollbutton-${index}`
-                          ).style.display = "flex";
-                          document.getElementById(
-                            `scrollbutton-${index}`
-                          ).style.opacity = 100;
-                        }
-                      }}
-                    >
-                      {item.ps_link.map((problem, index) => {
-                        return (
-                          <li key={index}>
-                            {console.log(item.ps_link[index])}
-                            {/* <PSComponent
-                              title={item.ps_name[index]}
-                              date={item.ps_date[index]}
-                              link={problem}
-                            /> */}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    <div
-                      id={`scrollbutton-${index}`}
-                      className='bg-gradient-to-r from-transparent to-customBlue-100 h-[10.3rem] w-24 flex items-center justify-end absolute right-0 hover:cursor-pointer transition-all'
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.getElementById(
-                          `scrollbar-${index}`
-                        ).scrollLeft += 400;
-                      }}
-                    >
-                      <ChevronRightIcon
-                        fontSize={"10rem"}
-                        height={"5rem"}
-                        preserveAspectRatio={"none"}
-                        color={"#4A6CB2"}
-                        width={"3rem"}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+            {selectedCup ==0 && brainiac && 
+              brainiac.map((item,index)=>{
+                return(
+                  <PSCup item={item} index={index} />
+                )
+              })
+            }
+            {selectedCup ==1 && visionary && 
+              visionary.map((item,index)=>{
+                return(
+                  <PSCup item={item} index={index} />
+                )
+              })
+            }
+            {selectedCup ==2 && daVinci && 
+              daVinci.map((item,index)=>{
+                return(
+                  <PSCup item={item} index={index} />
+                )
+              })
+            }
+            {selectedCup ==3 && business && 
+              business.map((item,index)=>{
+                return(
+                  <PSCup item={item} index={index} />
+                )
+              })
+            }
             </div>
           </div>
         </div>
