@@ -19,8 +19,8 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <div style={{position:'sticky', top:'0px'}}>
-    <Disclosure as='nav' className='bg-white border-customBlue-200 border-b-4' style={{zIndex:'1'}}>
+    <div style={{position:'sticky', top:'0px', zIndex:'2'}}>
+    <Disclosure as='nav' className='bg-white border-customBlue-200 border-b-4'>
       {({ open }) => (
         <>
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
