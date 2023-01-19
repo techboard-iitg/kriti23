@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import sanityClient from "../client";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
@@ -12,12 +12,18 @@ import PSHomeComponent from "../components/ps-home-component ";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import "./scrollbar-hide.css";
 import DownArrow from "../assets/down-arrow.svg";
+import {
+    Accordion,
+    AccordionHeader,
+    AccordionBody,
+  } from "@material-tailwind/react";
 
 export default function Home() {
 
     const [hostels, setHostels] = useState();
     const [schedule, setSchedule] = useState();
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+    const [open, setOpen] = useState(1);
 
     useEffect(() =>{
         const changeWidth = () => {
@@ -28,6 +34,10 @@ export default function Home() {
             window.removeEventListener('resize', changeWidth)
         }
     },[])
+
+    const handleOpen = (value) => {
+        setOpen(open === value ? 0 : value);
+      };
 
     const data = [
         {
@@ -272,6 +282,7 @@ export default function Home() {
                     View All
                 </Link>
                 <br/><br/><br/>
+                {(screenWidth > 950) && 
                 <div className='flex items-center gap-10 justify-between w-full relative'>
                     <ul
                     className='flex gap-6 items-center overflow-x-scroll flex-1 scrollbar-hide'
@@ -328,9 +339,59 @@ export default function Home() {
                         width={"3rem"}
                     />
                     </div>
-                </div>
-
-                
+                </div>}
+                {(screenWidth <= 950) && 
+                <Fragment>
+                    <Accordion open={open === 1} style={{backgroundColor:'white'}}>
+                        <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}} onClick={() => handleOpen(1)}>
+                        What is Material Tailwind?
+                        </AccordionHeader>
+                        <AccordionBody style={{padding:'3%'}}>
+                        We&apos;re not always in the position that we want to be at.
+                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
+                        We&apos;re constantly trying to express ourselves and actualize our
+                        dreams.
+                        </AccordionBody>
+                    </Accordion>
+                    <Accordion open={open === 2} style={{backgroundColor:'white'}}>
+                        <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}}onClick={() => handleOpen(2)}>
+                        How to use Material Tailwind?
+                        </AccordionHeader>
+                        <AccordionBody style={{padding:'3%'}}>
+                        We&apos;re not always in the position that we want to be at.
+                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
+                        We&apos;re constantly trying to express ourselves and actualize our
+                        dreams.
+                        <br/>
+                        <Link to="/points-table" style={{color: '#4A6CB2', textDecoration:'underline'}}>
+                            Learn More
+                        </Link>
+                        </AccordionBody>
+                    </Accordion>
+                    <Accordion open={open === 3} style={{backgroundColor:'white'}}>
+                        <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}}onClick={() => handleOpen(3)}>
+                        What can I do with Material Tailwind?
+                        </AccordionHeader>
+                        <AccordionBody style={{padding:'3%', fontSize:'1.1rem'}}>
+                        We&apos;re not always in the position that we want to be at.
+                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
+                        We&apos;re constantly trying to express ourselves and actualize our
+                        dreams.
+                        </AccordionBody>
+                    </Accordion>
+                    <Accordion open={open === 4} style={{backgroundColor:'white'}}>
+                        <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}}onClick={() => handleOpen(4)}>
+                        What can I do with Material Tailwind?
+                        </AccordionHeader>
+                        <AccordionBody style={{padding:'3%', fontSize:'1.1rem'}}>
+                        We&apos;re not always in the position that we want to be at.
+                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
+                        We&apos;re constantly trying to express ourselves and actualize our
+                        dreams.
+                        </AccordionBody>
+                    </Accordion>
+                </Fragment>
+                }
             </div>
             <Footer />
         </div>

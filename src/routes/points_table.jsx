@@ -51,6 +51,7 @@ export default function PointsTable() {
 
     return (
         <div className='min-h-screen bg-customBlue-100 flex flex-col'>
+            {console.log(hostels)}
         <Navbar />
         <div style={{ margin: "3%" }} >
             <h1 className="text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>

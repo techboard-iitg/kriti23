@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import ProblemStatementImage from "../assets/problem-statement.png";
@@ -6,86 +6,216 @@ import PSComponent from "../components/ps-component";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import "./scrollbar-hide.css";
 import DownArrow from "../assets/down-arrow.svg";
+import sanityClient from "../client";
 
 const ProblemStatement = () => {
-  const cupsName = ["Brainiac Cup", "Brainiac Cup"];
+  const cupsName = ["Brainiac Cup", "Visionary Cup", "Da Vinci Cup", "Business Cup"];
   const [selectedCup, setSelectedCup] = useState(0);
+  const [brainiac, setBrainiac] = useState();
+  const [daVinci, setDaVinci] = useState();
+  const [business, setBusiness] = useState();
+  const [visionary, setVisionary] = useState();
+
+  useEffect(() => {
+    sanityClient
+        .fetch(
+            `*[_type == "BrainiacCup"]{
+                club_name,
+                hoste_points,
+                ps_link,
+                ps_name,
+                ps_points,
+                ps_date,
+            }`
+        )
+        .then((data) => setBrainiac(data))
+        .catch(console.error);
+      sanityClient
+        .fetch(
+            `*[_type == "BusinessCup"]{
+                club_name,
+                hoste_points,
+                ps_link,
+                ps_name,
+                ps_points,
+                ps_date,
+            }`
+        )
+        .then((data) => setBusiness(data))
+        .catch(console.error);
+      sanityClient
+        .fetch(
+            `*[_type == "VisionaryCup"]{
+                club_name,
+                hoste_points,
+                ps_link,
+                ps_name,
+                ps_points,
+                ps_date,
+            }`
+        )
+        .then((data) => setVisionary(data))
+        .catch(console.error);
+
+      sanityClient
+        .fetch(
+            `*[_type == "DaVinciCup"]{
+                club_name,
+                hoste_points,
+                ps_link,
+                ps_name,
+                ps_points,
+                ps_date,
+            }`
+        )
+        .then((data) => setDaVinci(data))
+        .catch(console.error);
+  }, []);
+
   const allProblemStatements = [
-    [
-      {
-        club: "Aeromodelling",
-        problemStatements: [
-          {
-            title: "Problem Statement is the most interesting ps",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-          {
-            title: "Problem Statement 2",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-          {
-            title: "Problem Statement 3",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-          {
-            title: "Problem Statement 4",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-          {
-            title: "Problem Statement 5",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-        ],
-      },
-      {
-        club: "IITG.Ai Brainiac",
-        problemStatements: [
-          {
-            title: "Problem Statement 1",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-        ],
-      },
-    ],
-    [
-      {
-        club: "Aeromodelling",
-        problemStatements: [
-          {
-            title: "Problem Statement 1",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-          {
-            title: "Problem Statement 1",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-          {
-            title: "Problem Statement 1",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-        ],
-      },
-      {
-        club: "IITG.Ai - Non Brainiac",
-        problemStatements: [
-          {
-            title: "Problem Statement 1",
-            date: "12/02/23",
-            link: "https://www.google.com",
-          },
-        ],
-      },
-    ],
-  ];
+    brainiac, visionary, daVinci, business
+  ]
+
+  // const allProblemStatements = [
+  //   [
+  //     {
+  //       club: "Aeromodelling",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement is the most interesting ps",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 2",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 3",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 4",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 5",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       club: "IITG.Ai Brainiac",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   [
+  //     {
+  //       club: "Aeromodelling",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       club: "IITG.Ai - Non Brainiac",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   [
+  //     {
+  //       club: "Aeromodelling",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       club: "IITG.Ai - Non Brainiac",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  //   [
+  //     {
+  //       club: "Aeromodelling",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       club: "IITG.Ai - Non Brainiac",
+  //       problemStatements: [
+  //         {
+  //           title: "Problem Statement 1",
+  //           date: "12/02/23",
+  //           link: "https://www.google.com",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // ];
   return (
     <div className='min-h-screen bg-customBlue-100 flex flex-col max-w-[100vw] overflow-hidden'>
       <div className='sticky top-0 z-10'>
@@ -102,16 +232,19 @@ const ProblemStatement = () => {
             <div className='flex flex-col items-start justify-between'>
               <div>
                 <p className='text-5xl md:text-[4rem] leading-16 md:leading-12 uppercase font-bold text-white'>
-                  Brainiac
+                  {selectedCup == 0 && "Brainiac"}
+                  {selectedCup == 1 && "Visionary Cup"}
+                  {selectedCup == 2 && "Da Vinci Cup"}
+                  {selectedCup == 3 && "Business Cup"}
                 </p>
                 <p className='text-5xl md:text-[4rem] uppercase font-bold text-customOrange-100'>
                   Cup
                 </p>
                 <p className='text-white text-wrap w-4/6 md:w-3/6 py-2 md:py-20 md:text-xl'>
-                  This Module is needed to brainstorm and pull the ideas
-                  together quickly. While most of brainstorming Events aren't
-                  new, more frequent and disciplined use of them can greatly
-                  enhance the possibilities to win.
+                  {selectedCup == 0 && "This Module is needed to brainstorm and pull the ideas together quickly. While most of brainstorming Events are not new, more frequent and disciplined use of them can greatly enhance the possibilities to win."}
+                  {selectedCup == 1 && "This Module is needed to brainstorm - Visionary Cup"}
+                  {selectedCup == 2 && "This Module is needed to brainstorm - Da Vinci Cup"}
+                  {selectedCup == 3 && "This Module is needed to brainstorm - Business Cup"}
                 </p>
               </div>
             </div>
@@ -165,7 +298,7 @@ const ProblemStatement = () => {
                     className='flex items-center gap-10 justify-between w-full relative'
                   >
                     <div className='text-customBlue-300 text-3xl font-semibold py-4'>
-                      {item.club}
+                      {item.club_name}
                     </div>
                     <ul
                       className='flex gap-6 items-center overflow-x-scroll flex-1 scrollbar-hide'
@@ -196,14 +329,15 @@ const ProblemStatement = () => {
                         }
                       }}
                     >
-                      {item.problemStatements.map((problem, index) => {
+                      {item.ps_link.map((problem, index) => {
                         return (
                           <li key={index}>
-                            <PSComponent
-                              title={problem.title}
-                              date={problem.date}
-                              link={problem.link}
-                            />
+                            {console.log(item.ps_link[index])}
+                            {/* <PSComponent
+                              title={item.ps_name[index]}
+                              date={item.ps_date[index]}
+                              link={problem}
+                            /> */}
                           </li>
                         );
                       })}
