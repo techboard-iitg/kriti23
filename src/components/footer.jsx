@@ -15,7 +15,7 @@ const Footer = () => {
       {/* Social Links */}
 
       <div className='flex justify-center gap-8 border-t-2 px-8 pt-6 border-customOrange-100 w-fit'>
-        <a href='tel:8003825647' target='_blank' rel='noreferrer'>
+        <a href='tel:7981380676' target='_blank' rel='noreferrer'>
           <PhoneIcon className='h-4' />
         </a>
         <a
