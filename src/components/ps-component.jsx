@@ -2,7 +2,7 @@ import React from "react";
 
 const PSComponent = ({ title, date, link }) => {
   return (
-    <div className='bg-white p-6 w-[20rem] min-h-[10.3rem] flex justify-between'>
+    <div className='bg-white p-6 w-[20rem] min-h-[10.3rem] flex justify-between flex-col'>
       <h1 className='text-xl mb-5'> {title} </h1>
       <div className='flex justify-between items-center'>
         <div>Date: {date}</div>
