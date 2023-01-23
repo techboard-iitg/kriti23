@@ -92,17 +92,17 @@ const ProblemStatement = () => {
                 <p className='text-5xl md:text-[4rem] leading-16 md:leading-12 uppercase font-bold text-white'>
                   {selectedCup == 0 && "Brainiac"}
                   {/* {selectedCup == 1 && "Visionary Cup"} */}
-                  {selectedCup == 2 && "Da Vinci Cup"}
-                  {selectedCup == 3 && "Business Cup"}
+                  {selectedCup == 1 && "Da Vinci Cup"}
+                  {selectedCup == 2 && "Business Cup"}
                 </p>
                 <p className='text-5xl md:text-[4rem] uppercase font-bold text-customOrange-100'>
                   Cup
                 </p>
                 <p className='text-white text-wrap w-4/6 md:w-3/6 py-2 md:py-20 md:text-xl'>
-                  {selectedCup == 0 && "This Module is needed to brainstorm and pull the ideas together quickly. While most of brainstorming Events are not new, more frequent and disciplined use of them can greatly enhance the possibilities to win."}
+                  {selectedCup == 0 && "This Module is needed to brainstorm and pull the ideas together quickly. While most brainstorming Events aren't new, more frequent and disciplined use of them can greatly enhance the possibilities to win. This includes Quizzes, Hackathons, CP Contests.  Clubs - Acumen, Coding Club, iitg.ai, Astronomy."}
                   {/* {selectedCup == 1 && "This Module is needed to brainstorm - Visionary Cup"} */}
-                  {selectedCup == 2 && "This Module is needed to brainstorm - Da Vinci Cup"}
-                  {selectedCup == 3 && "This Module is needed to brainstorm - Business Cup"}
+                  {selectedCup == 1 && "This Module comprises all events related to Hardware PS including problems which includes Hardware prototypes. The main source for PS was Robotics, Electronics, Automobile, Aeromodelling Club, 4i Labs and Game-Dev. This is one of the most important Cups among all cups, as these cups come with lots of points."}
+                  {selectedCup == 2 && "The Creative Business Cup Innovation Challenges welcomes new ideas, presents your new and innovative ideas and participates in the kriti. This is also a great opportunity to learn for the new rising Hostels in other word, as there are lots of opportunities in this module everyone is welcome to join! and grab as many points as you can."}
                 </p>
               </div>
             </div>
@@ -163,14 +163,14 @@ const ProblemStatement = () => {
                 )
               })
             } */}
-            {selectedCup ==2 && daVinci && 
+            {selectedCup ==1 && daVinci && 
               daVinci.map((item,index)=>{
                 return(
                   <PSCup item={item} index={index} />
                 )
               })
             }
-            {selectedCup ==3 && business && 
+            {selectedCup ==2 && business && 
               business.map((item,index)=>{
                 return(
                   <PSCup item={item} index={index} />

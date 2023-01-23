@@ -18,6 +18,10 @@ import {
     AccordionBody,
   } from "@material-tailwind/react";
 
+import BusinessLogo from "../assets/business.jpeg";
+import BrainiacLogo from "../assets/brainiac.png";
+import DaVinciLogo from "../assets/daVinci.jpeg";
+
 export default function Home() {
 
     const [hostels, setHostels] = useState();
@@ -41,21 +45,21 @@ export default function Home() {
 
     const data = [
         {
-            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
+            image: BrainiacLogo,
             title: "Brainiac Cup",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            desc: "This Module is needed to brainstorm and pull the ideas together quickly. While most brainstorming Events aren't new, more frequent and disciplined use of them can greatly enhance the possibilities to win. This includes Quizzes, Hackathons, CP Contests.  Clubs - Acumen, Coding Club, iitg.ai, Astronomy.",
             link: "/problem-statement"
         },
         {
-            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
+            image: DaVinciLogo,
             title: "Da Vinci Cup",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            desc: "The Creative Business Cup Innovation Challenges welcomes new ideas, presents your new and innovative ideas and participates in the kriti. This is also a great opportunity to learn for the new rising Hostels in other word, as there are lots of opportunities in this module everyone is welcome to join! and grab as many points as you can.",
             link: "/problem-statement"
         },
         {
-            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
+            image: BusinessLogo,
             title: "Business Cup",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            desc: "This Module comprises all events related to Hardware PS including problems which includes Hardware prototypes. The main source for PS was Robotics, Electronics, Automobile, Aeromodelling Club, 4i Labs and Game-Dev. This is one of the most important Cups among all cups, as these cups come with lots of points.",
             link: "/problem-statement"
         },
     ]
@@ -157,7 +161,7 @@ export default function Home() {
                     <div>
                         <h1 className="text-4xl customBlue-300 font-bold">ABOUT:</h1>
                         <br/>
-                        <h3 className="text-1xl customBlue-300 font-bold">13 hostels, 30 days, 1 title!</h3>
+                        <h3 className="text-1xl customBlue-300 font-bold">14 hostels, 30 days, 1 title!</h3>
                         <p>The inter hostel technical and management festival where nous and creativity are ones only saviors. 
                             With a conflux of competitions from Robotics, Product Design, Finance and Management, Marketing Strategy, Quizzes, Astronomy and Gaming, 
                             this fest has been successful in uniting people from each year and department, besides inculcating the hostel spirit. 
@@ -173,7 +177,7 @@ export default function Home() {
                     <div>
                         <h1 className="text-4xl customBlue-300 font-bold">ABOUT:</h1>
                         <br/>
-                        <h3 className="text-1xl customBlue-300 font-bold">13 hostels, 30 days, 1 title!</h3>
+                        <h3 className="text-1xl customBlue-300 font-bold">14 hostels, 30 days, 1 title!</h3>
                         <p>The inter hostel technical and management festival where nous and creativity are ones only saviors. 
                             With a conflux of competitions from Robotics, Product Design, Finance and Management, Marketing Strategy, Quizzes, Astronomy and Gaming, 
                             this fest has been successful in uniting people from each year and department, besides inculcating the hostel spirit. 
@@ -326,50 +330,38 @@ export default function Home() {
                 <Fragment>
                     <Accordion open={open === 1} style={{backgroundColor:'white'}}>
                         <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}} onClick={() => handleOpen(1)}>
-                        What is Material Tailwind?
+                        Brainiac Cup
                         </AccordionHeader>
                         <AccordionBody style={{padding:'3%'}}>
-                        We&apos;re not always in the position that we want to be at.
-                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
-                        We&apos;re constantly trying to express ourselves and actualize our
-                        dreams.
+                        This Module is needed to brainstorm and pull the ideas together quickly. While most brainstorming Events aren't new, more frequent and disciplined use of them can greatly enhance the possibilities to win. This includes Quizzes, Hackathons, CP Contests.  Clubs - Acumen, Coding Club, iitg.ai, Astronomy.
+                        <br/>
+                        <Link to="/problem-statement" style={{color: '#4A6CB2', textDecoration:'underline'}}>
+                            Learn More
+                        </Link>
                         </AccordionBody>
                     </Accordion>
                     <Accordion open={open === 2} style={{backgroundColor:'white'}}>
                         <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}}onClick={() => handleOpen(2)}>
-                        How to use Material Tailwind?
+                        Da Vinci Cup
                         </AccordionHeader>
                         <AccordionBody style={{padding:'3%'}}>
-                        We&apos;re not always in the position that we want to be at.
-                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
-                        We&apos;re constantly trying to express ourselves and actualize our
-                        dreams.
+                        This Module comprises all events related to Hardware PS including problems which includes Hardware prototypes. The main source for PS was Robotics, Electronics, Automobile, Aeromodelling Club, 4i Labs and Game-Dev. This is one of the most important Cups among all cups, as these cups come with lots of points.
                         <br/>
-                        <Link to="/points-table" style={{color: '#4A6CB2', textDecoration:'underline'}}>
+                        <Link to="/problem-statement" style={{color: '#4A6CB2', textDecoration:'underline'}}>
                             Learn More
                         </Link>
                         </AccordionBody>
                     </Accordion>
                     <Accordion open={open === 3} style={{backgroundColor:'white'}}>
                         <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}}onClick={() => handleOpen(3)}>
-                        What can I do with Material Tailwind?
+                        Business Cup
                         </AccordionHeader>
-                        <AccordionBody style={{padding:'3%', fontSize:'1.1rem'}}>
-                        We&apos;re not always in the position that we want to be at.
-                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
-                        We&apos;re constantly trying to express ourselves and actualize our
-                        dreams.
-                        </AccordionBody>
-                    </Accordion>
-                    <Accordion open={open === 4} style={{backgroundColor:'white'}}>
-                        <AccordionHeader style={{backgroundColor:'#032538', color:'white', padding:'3%'}}onClick={() => handleOpen(4)}>
-                        What can I do with Material Tailwind?
-                        </AccordionHeader>
-                        <AccordionBody style={{padding:'3%', fontSize:'1.1rem'}}>
-                        We&apos;re not always in the position that we want to be at.
-                        We&apos;re constantly growing. We&apos;re constantly making mistakes.
-                        We&apos;re constantly trying to express ourselves and actualize our
-                        dreams.
+                        <AccordionBody style={{padding:'3%'}}>
+                        The Creative Business Cup Innovation Challenges welcomes new ideas, presents your new and innovative ideas and participates in the kriti. This is also a great opportunity to learn for the new rising Hostels in other word, as there are lots of opportunities in this module everyone is welcome to join! and grab as many points as you can.
+                        <br/>
+                        <Link to="/problem-statement" style={{color: '#4A6CB2', textDecoration:'underline'}}>
+                            Learn More
+                        </Link>
                         </AccordionBody>
                     </Accordion>
                 </Fragment>
