@@ -53,7 +53,7 @@ export default function PointsTable() {
         <div className='min-h-screen bg-customBlue-100 flex flex-col'>
             {console.log(hostels)}
         <Navbar />
-        <div style={{ margin: "3%" }} >
+        <div style={{ margin: "3%" }} className='flex-1'>
             <h1 className="text-xl md:text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>
             <br />
             <table style={{ borderStyle: "solid", borderColor: "#032538", borderWidth: 2, borderRadius: 1 }} className="min-w-full">
