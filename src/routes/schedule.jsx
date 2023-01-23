@@ -32,7 +32,7 @@ export default function Schedule() {
   return (
     <div className='min-h-screen bg-customBlue-100 flex flex-col'>
       <Navbar />
-      <div style={{ margin: "3%" }}>
+      <div style={{ margin: "3%" }} className='flex-1'>
         <h1 className='md:text-4xl text-xl customBlue-300 font-bold'>
           Event Dates - KRITI (2023) :-
         </h1>
