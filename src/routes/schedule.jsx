@@ -32,9 +32,9 @@ export default function Schedule() {
       return 0;
   }
     return (
-      <div className='min-h-screen bg-customBlue-100 flex flex-col'>
+      <div className='min-h-screen bg-customBlue-100 flex flex-col' style={{display:'flex', height:'100vh'}}>
         <Navbar />
-        <div style={{margin:"3%"}}>
+        <div style={{margin:"3%", height:'100vh'}}>
             <h1 className="text-3xl customBlue-300 font-bold">Event Dates - KRITI (2023) :-</h1>
             <br/>
             <table style={{borderStyle: "solid", borderColor: "#032538", borderWidth: 2, borderRadius: 1}} className="min-w-full table-auto">
