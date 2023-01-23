@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const PSHomeComponent = ({item}) => {
   return (
@@ -9,7 +10,7 @@ const PSHomeComponent = ({item}) => {
       </div>
       <div className='text-black px-6 py-8'>
         <p className='text-base'>{item.desc}</p>
-        <a href={item.link} className='text-sm text-blue-500 underline cursor-pointer'>Learn More</a>
+        <Link to="/problem-statement" className='text-sm text-blue-500 underline cursor-pointer'>Learn More</Link>
       </div>
     </div>
   );

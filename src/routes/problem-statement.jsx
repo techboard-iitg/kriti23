@@ -8,7 +8,7 @@ import sanityClient from "../client";
 import PSCup from "../components/ps-cup";
 
 const ProblemStatement = () => {
-  const cupsName = ["Brainiac Cup", "Visionary Cup", "Da Vinci Cup", "Business Cup"];
+  const cupsName = ["Brainiac Cup", "Da Vinci Cup", "Business Cup"];
   const [selectedCup, setSelectedCup] = useState(0);
   const [brainiac, setBrainiac] = useState();
   const [daVinci, setDaVinci] = useState();
@@ -44,19 +44,19 @@ const ProblemStatement = () => {
         )
         .then((data) => setBusiness(data))
         .catch(console.error);
-      sanityClient
-        .fetch(
-            `*[_type == "visionary_cup"]{
-                club_name,
-                hoste_points,
-                ps_link,
-                ps_name,
-                ps_points,
-                ps_date,
-            }`
-        )
-        .then((data) => setVisionary(data))
-        .catch(console.error);
+      // sanityClient
+      //   .fetch(
+      //       `*[_type == "visionary_cup"]{
+      //           club_name,
+      //           hoste_points,
+      //           ps_link,
+      //           ps_name,
+      //           ps_points,
+      //           ps_date,
+      //       }`
+      //   )
+      //   .then((data) => setVisionary(data))
+      //   .catch(console.error);
 
       sanityClient
         .fetch(
@@ -91,7 +91,7 @@ const ProblemStatement = () => {
               <div>
                 <p className='text-5xl md:text-[4rem] leading-16 md:leading-12 uppercase font-bold text-white'>
                   {selectedCup == 0 && "Brainiac"}
-                  {selectedCup == 1 && "Visionary Cup"}
+                  {/* {selectedCup == 1 && "Visionary Cup"} */}
                   {selectedCup == 2 && "Da Vinci Cup"}
                   {selectedCup == 3 && "Business Cup"}
                 </p>
@@ -100,7 +100,7 @@ const ProblemStatement = () => {
                 </p>
                 <p className='text-white text-wrap w-4/6 md:w-3/6 py-2 md:py-20 md:text-xl'>
                   {selectedCup == 0 && "This Module is needed to brainstorm and pull the ideas together quickly. While most of brainstorming Events are not new, more frequent and disciplined use of them can greatly enhance the possibilities to win."}
-                  {selectedCup == 1 && "This Module is needed to brainstorm - Visionary Cup"}
+                  {/* {selectedCup == 1 && "This Module is needed to brainstorm - Visionary Cup"} */}
                   {selectedCup == 2 && "This Module is needed to brainstorm - Da Vinci Cup"}
                   {selectedCup == 3 && "This Module is needed to brainstorm - Business Cup"}
                 </p>
@@ -156,13 +156,13 @@ const ProblemStatement = () => {
                 )
               })
             }
-            {selectedCup ==1 && visionary && 
+            {/* {selectedCup ==1 && visionary && 
               visionary.map((item,index)=>{
                 return(
                   <PSCup item={item} index={index} />
                 )
               })
-            }
+            } */}
             {selectedCup ==2 && daVinci && 
               daVinci.map((item,index)=>{
                 return(

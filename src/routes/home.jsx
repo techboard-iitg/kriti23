@@ -42,39 +42,21 @@ export default function Home() {
     const data = [
         {
             image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
-            title: "Hostel 1",
+            title: "Brainiac Cup",
             desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "/hostel1"
+            link: "/problem-statement"
         },
         {
             image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
-            title: "Hostel 1",
+            title: "Da Vinci Cup",
             desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "/hostel1"
+            link: "/problem-statement"
         },
         {
             image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
-            title: "Hostel 1",
+            title: "Business Cup",
             desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "/hostel1"
-        },
-        {
-            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
-            title: "Hostel 1",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "/hostel1"
-        },
-        {
-            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
-            title: "Hostel 1",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "/hostel1"
-        },
-        {
-            image: "https://www.shutterstock.com/image-photo/closeup-photo-amazing-short-hairdo-600w-1617540484.jpg",
-            title: "Hostel 1",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "/hostel1"
+            link: "/problem-statement"
         },
     ]
 
@@ -296,19 +278,19 @@ export default function Home() {
                         ) < 10
                         ) {
                         document.getElementById(
-                            "scrollbar"
+                            "scrollbutton"
                         ).style.opacity = 0;
                         setTimeout(() => {
                             document.getElementById(
-                                "scrollbar"
+                                "scrollbutton"
                             ).style.display = "none";
                         }, 150);
                         } else {
                         document.getElementById(
-                            "scrollbar"
+                            "scrollbutton"
                         ).style.display = "flex";
                         document.getElementById(
-                            "scrollbar"
+                            "scrollbutton"
                         ).style.opacity = 100;
                         }
                     }}
