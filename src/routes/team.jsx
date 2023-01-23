@@ -42,7 +42,7 @@ const Team = () => {
       <div className='flex-1'>
         <div className='my-20 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
           <div className='relative flex flex-col items-start justify-between'>
-            <h1 className="text-3xl customBlue-300 font-bold">
+            <h1 className="text-xl md:text-3xl customBlue-300 font-bold">
               Team(2022-2023) :-
             </h1>
             <br/>

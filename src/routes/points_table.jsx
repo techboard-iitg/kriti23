@@ -54,18 +54,18 @@ export default function PointsTable() {
             {console.log(hostels)}
         <Navbar />
         <div style={{ margin: "3%" }} >
-            <h1 className="text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>
+            <h1 className="text-xl md:text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>
             <br />
             <table style={{ borderStyle: "solid", borderColor: "#032538", borderWidth: 2, borderRadius: 1 }} className="min-w-full">
                 <thead style={{ backgroundColor: "#032538", color: "#EFEFEF" }}>
                     <tr>
-                        <th scope="col" className="px-6 py-4 text-base font-bold text-left uppercase ">
+                        <th scope="col" className="px-3 md:px-6 py-4 text-sm md:text-base font-bold text-left uppercase ">
                             Position
                         </th>
-                        <th scope="col" className="px-6 py-4 text-base font-bold text-left uppercase ">
+                        <th scope="col" className="px-3 md:px-6 py-4 text-sm md:text-base font-bold text-left uppercase ">
                             Hostel Name
                         </th>
-                        <th scope="col" className="py-4 text-base font-bold text-left uppercase ">
+                        <th scope="col" className="py-4 text-sm md:text-base font-bold text-left uppercase ">
                             Points
                         </th>
                     </tr>
@@ -78,10 +78,10 @@ export default function PointsTable() {
                         hostels.map((hostel, ind) => (
                             <tr style={{ backgroundColor: (ind % 2 == 0) ? '#FDFEFF' : '#EFEFEF', }}>
 
-                                <td className="px-6 py-4 text-base font-medium text-customBlue-300 relative whitespace-nowrap"><span>{ind + 1}</span>
+                                <td className="px-3 md:px-6 py-4 text-xs md:text-base font-medium text-customBlue-300 relative whitespace-nowrap"><span>{ind + 1}</span>
                                 <div style={styles(ind)} className="top-0 left-0" /></td>
-                                <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">{hostel.hostel_name}</td>
-                                <td className="px-6 py-4 text-base font-medium text-customBlue-300 whitespace-nowrap">{hostel.hostel_points}</td>
+                                <td className="px-3 md:px-6 py-4 text-xs md:text-base font-medium text-customBlue-300 whitespace-nowrap">{hostel.hostel_name}</td>
+                                <td className="px-3 md:px-6 py-4 text-xs md:text-base font-medium text-customBlue-300 whitespace-nowrap">{hostel.hostel_points}</td>
                             </tr>
                         ))
                     }

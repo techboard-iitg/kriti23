@@ -115,11 +115,11 @@ const ProblemStatement = () => {
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-black'>
             <div className='flex flex-col items-start justify-between'>
               <div>
-                <ul className='flex gap-6 text-white items-center mx-4'>
+                <ul className='flex gap-6 text-white mx-4 h-full items-center'>
                   {cupsName.map((item, index) => {
                     if (index !== selectedCup)
                       return (
-                        <li key={index} className='md:text-base text-sm md:py-4 py-2'>
+                        <li key={index} className='md:text-base text-sm md:py-4 py-2 h-full flex items-center'>
                           <button onClick={() => setSelectedCup(index)}>
                             {item}
                           </button>
@@ -129,9 +129,9 @@ const ProblemStatement = () => {
                       return (
                         <li
                           key={index}
-                          className='text-base md:py-4 py-2 bg-customBlue-200 md:px-12 px-8'
+                          className='text-base md:py-4 py-2 bg-customBlue-200 md:px-12 px-8 h-full flex items-center'
                         >
-                          <img src={DownArrow} alt='down-arrow' className='h-6' />
+                          <img src={DownArrow} alt='down-arrow' className='h-6 self-center' />
                         </li>
                       );
                   })}
@@ -143,7 +143,7 @@ const ProblemStatement = () => {
         <div className='bg-white shadow-md shadow-gray-400 border-b-2 relative'>
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
             <div className='flex flex-col items-start justify-between'>
-              <div className='text-customBlue-300 md:text-4xl text-xl py-3 sm:ml-0 ml-4 font-semibold'>
+              <div className='text-customBlue-300 md:text-3xl text-xl py-3 sm:ml-0 ml-4 font-semibold'>
                 Problem Statements :-
               </div>
             </div>
