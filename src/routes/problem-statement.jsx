@@ -99,10 +99,13 @@ const ProblemStatement = () => {
                   Cup
                 </p>
                 <p className='text-white text-wrap w-4/6 md:w-3/6 py-2 md:py-20 md:text-xl'>
-                  {selectedCup == 0 && "This Module is needed to brainstorm and pull the ideas together quickly. While most brainstorming Events aren't new, more frequent and disciplined use of them can greatly enhance the possibilities to win. This includes Quizzes, Hackathons, CP Contests.  Clubs - Acumen, Coding Club, iitg.ai, Astronomy."}
+                  {selectedCup == 0 &&
+                    "This Module is needed to brainstorm and pull the ideas together quickly. While most brainstorming Events aren't new, more frequent and disciplined use of them can greatly enhance the possibilities to win. This includes Quizzes, Hackathons, CP Contests.  Clubs - Acumen, Coding Club, iitg.ai, Astronomy."}
                   {/* {selectedCup == 1 && "This Module is needed to brainstorm - Visionary Cup"} */}
-                  {selectedCup == 1 && "This Module comprises all events related to Hardware PS including problems which includes Hardware prototypes. The main source for PS was Robotics, Electronics, Automobile, Aeromodelling Club, 4i Labs and Game-Dev. This is one of the most important Cups among all cups, as these cups come with lots of points."}
-                  {selectedCup == 2 && "The Creative Business Cup Innovation Challenges welcomes new ideas, presents your new and innovative ideas and participates in the kriti. This is also a great opportunity to learn for the new rising Hostels in other word, as there are lots of opportunities in this module everyone is welcome to join! and grab as many points as you can."}
+                  {selectedCup == 1 &&
+                    "This Module comprises all events related to Hardware PS including problems which includes Hardware prototypes. The main source for PS was Robotics, Electronics, Automobile, Aeromodelling Club, 4i Labs and Game-Dev. This is one of the most important Cups among all cups, as these cups come with lots of points."}
+                  {selectedCup == 2 &&
+                    "The Creative Business Cup Innovation Challenges welcomes new ideas, presents your new and innovative ideas and participates in the kriti. This is also a great opportunity to learn for the new rising Hostels in other word, as there are lots of opportunities in this module everyone is welcome to join! and grab as many points as you can."}
                 </p>
               </div>
             </div>
@@ -112,11 +115,11 @@ const ProblemStatement = () => {
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-black'>
             <div className='flex flex-col items-start justify-between'>
               <div>
-                <ul className='flex gap-6 text-white items-center'>
+                <ul className='flex gap-6 text-white items-center mx-4'>
                   {cupsName.map((item, index) => {
                     if (index !== selectedCup)
                       return (
-                        <li key={index} className='text-base py-4'>
+                        <li key={index} className='md:text-base text-sm md:py-4 py-2'>
                           <button onClick={() => setSelectedCup(index)}>
                             {item}
                           </button>
@@ -126,9 +129,9 @@ const ProblemStatement = () => {
                       return (
                         <li
                           key={index}
-                          className='text-base py-4 bg-customBlue-200 px-12'
+                          className='text-base md:py-4 py-2 bg-customBlue-200 md:px-12 px-8'
                         >
-                          <img src={DownArrow} alt='down-arrow' />
+                          <img src={DownArrow} alt='down-arrow' className='h-6' />
                         </li>
                       );
                   })}
@@ -137,46 +140,40 @@ const ProblemStatement = () => {
             </div>
           </div>
         </div>
-        <div className='bg-white shadow-md shadow-gray-300 border-b-2 relative'>
+        <div className='bg-white shadow-md shadow-gray-400 border-b-2 relative'>
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
             <div className='flex flex-col items-start justify-between'>
-              <div className='text-customBlue-300 text-4xl py-3 sm:ml-0 ml-4 font-semibold'>
+              <div className='text-customBlue-300 md:text-4xl text-xl py-3 sm:ml-0 ml-4 font-semibold'>
                 Problem Statements :-
               </div>
             </div>
           </div>
         </div>
         <div className='bg-customBlue-100 my-10 max-w-[100vw]'>
-          <div className='sm:ml-32 ml-4 px-2 sm:px-6 lg:px-8'>
+          <div className='md:ml-4 -ml-2 px-2 sm:px-6 lg:px-8'>
             <div className='flex flex-col items-start justify-between ml-5 gap-10 overflow-hidden'>
-            {selectedCup ==0 && brainiac && 
-              brainiac.map((item,index)=>{
-                return(
-                  <PSCup item={item} index={index} />
-                )
-              })
-            }
-            {/* {selectedCup ==1 && visionary && 
+              {selectedCup == 0 &&
+                brainiac &&
+                brainiac.map((item, index) => {
+                  return <PSCup item={item} index={index} />;
+                })}
+              {/* {selectedCup ==1 && visionary && 
               visionary.map((item,index)=>{
                 return(
                   <PSCup item={item} index={index} />
                 )
               })
             } */}
-            {selectedCup ==1 && daVinci && 
-              daVinci.map((item,index)=>{
-                return(
-                  <PSCup item={item} index={index} />
-                )
-              })
-            }
-            {selectedCup ==2 && business && 
-              business.map((item,index)=>{
-                return(
-                  <PSCup item={item} index={index} />
-                )
-              })
-            }
+              {selectedCup == 1 &&
+                daVinci &&
+                daVinci.map((item, index) => {
+                  return <PSCup item={item} index={index} />;
+                })}
+              {selectedCup == 2 &&
+                business &&
+                business.map((item, index) => {
+                  return <PSCup item={item} index={index} />;
+                })}
             </div>
           </div>
         </div>
