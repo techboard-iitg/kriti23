@@ -21,6 +21,7 @@ import {
 import BusinessLogo from "../assets/business.jpeg";
 import BrainiacLogo from "../assets/brainiac.png";
 import DaVinciLogo from "../assets/daVinci.jpeg";
+import { useMemo } from "react";
 
 export default function Home() {
 
@@ -86,6 +87,22 @@ export default function Home() {
         .then((data) => setSchedule(data))
         .catch(console.error);
     }, []);
+
+    const eventData = useMemo(()=>{
+        if(!schedule) return [];
+        console.log("HEllo")
+        return schedule.filter((each)=>{
+            const x = new Date(each.event_date)
+            const y = new Date()
+            y.setHours(0,0,0,0);
+            console.log(x , y);
+            return moment(x)>=moment(y);
+            // console.log(Date(moment(each.event_date).format("DD/MM/YYYY")) , Date(moment(Date.now()).format("DD/MM/YYYY")));
+            // console.log(moment(each.event_date), moment(moment().format("YYYY-MM-DD")))
+            // return moment(each.event_date) >= moment(moment().format("DD/MM/YYYY").toString());
+        });
+    }, [schedule])
+
     function compare(a, b) {
         if (a.hostel_points > b.hostel_points) {
             return -1;  
@@ -258,9 +275,9 @@ export default function Home() {
               </tr>
             </thead>
             <tbody className='divide-y divide-customBlue-200'>
-              {schedule &&
-                schedule.sort(compare2) &&
-                schedule.slice(0, 3).map((ps_event, ind) => (
+              {eventData &&
+                eventData.sort(compare2) &&
+                eventData.slice(0, 3).map((ps_event, ind) => (
                   <tr
                     style={{
                       backgroundColor: ind % 2 == 0 ? "#FDFEFF" : "#EFEFEF",
