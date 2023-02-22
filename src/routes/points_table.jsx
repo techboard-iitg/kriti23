@@ -7,6 +7,7 @@ import Navbar from "../components/navbar";
 export default function PointsTable() {
 
     const [hostels, setHostels] = useState();
+    const [hostelMapping, setHostelMapping] = useState();
 
     useEffect(() => {
         sanityClient
@@ -18,7 +19,18 @@ export default function PointsTable() {
             )
             .then((data) => setHostels(data))
             .catch(console.error);
+        sanityClient
+            .fetch(
+                `*[_type == "ps_points_table"]{
+                    ps_name,
+                    hostel_names,
+                    hostel_points,
+                }`
+            )
+            .then((data) => setHostelMapping(data))
+            .catch(console.error);
     }, []);
+
     function compare(a, b) {
         if (a.hostel_points > b.hostel_points) {
             return -1;
@@ -51,7 +63,7 @@ export default function PointsTable() {
 
     return (
         <div className='min-h-screen bg-customBlue-100 flex flex-col'>
-            {console.log(hostels)}
+            {console.log(hostelMapping)}
         <Navbar />
         <div style={{ margin: "3%" }} className='flex-1'>
             <h1 className="text-xl md:text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>

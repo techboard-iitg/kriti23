@@ -5,4 +5,5 @@ import DaVinciCup from './DaVinciCup'
 import BusinessCup from './BusinessCup'
 import VisionaryCup from  './VisionaryCup'
 import team from './team'
-export const schemaTypes = [events, point_table,BrainiacCup,DaVinciCup,BusinessCup,VisionaryCup,team]
+import PSPointsTable from './PSPointsTable'
+export const schemaTypes = [events, point_table,BrainiacCup,DaVinciCup,BusinessCup,VisionaryCup,team, PSPointsTable]
