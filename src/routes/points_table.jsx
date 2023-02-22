@@ -23,7 +23,6 @@ export default function PointsTable() {
             .fetch(
                 `*[_type == "ps_points_table"]{
                     ps_name,
-                    hostel_names,
                     hostel_points,
                 }`
             )
@@ -63,7 +62,11 @@ export default function PointsTable() {
 
     return (
         <div className='min-h-screen bg-customBlue-100 flex flex-col'>
-            {console.log(hostelMapping)}
+            {hostelMapping  && hostelMapping.map((item) => (
+                item.hostel_points.map((itemss) =>{
+                    console.log(itemss)
+                })
+            ))}
         <Navbar />
         <div style={{ margin: "3%" }} className='flex-1'>
             <h1 className="text-xl md:text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>
