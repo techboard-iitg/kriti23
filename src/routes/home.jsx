@@ -165,7 +165,7 @@ export default function Home() {
             <div style={{ height: 500 }}>
               <div style={insideStyles}>
                 <img src={KritiLogo} style={{ height: "250px" }} alt='kriti' />
-                Inter-Hostel competetion organised by{" "}
+                Inter-Hostel competition organised by{" "}
                 <span className='font-bold text-customOrange-100'>
                   Techboard IIT Guwahati
                 </span>
