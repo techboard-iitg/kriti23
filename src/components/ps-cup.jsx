@@ -1,10 +1,42 @@
-import React from "react";
+import React, {useMemo
+} from "react";
 import ProblemStatementImage from "../assets/problem-statement.png";
 import PSComponent from "../components/ps-component";
+import PSResultComponent from "../components/ps-component-result";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import "./scrollbar-hide.css";
 
-const PSCup = ({ item, index  }) => {
+const PSCup = ({ item, index, kritiResult  }) => {
+
+  const releasedResults = useMemo(()=>{
+    if(!kritiResult) return [];
+
+    return kritiResult.map((item,i) => {
+      return item.ps_name.trim().toLowerCase()
+    })
+  }, [kritiResult])
+
+  function compare(a, b) {
+    if (a.hostel_points > b.hostel_points) {
+        return -1;
+    }
+    if (a.hostel_points < b.hostel_points) {
+        return 1;
+    }
+    return 0;
+  }
+
+  const winnerList = useMemo(()=>{
+    if(!kritiResult || (!releasedResults || releasedResults.length === 0)) return {};
+
+    const obj = {};
+    kritiResult.forEach((item) => {
+      const points = item.points.sort(compare)
+      obj[item.ps_name.trim().toLowerCase()] = points[0]['hostel_name']
+    })
+    return obj;
+  }, [releasedResults, kritiResult])
+
   return (
     <div className="w-full">
       <div className='md:hidden block text-customBlue-300 text-xl font-semibold py-4'>
@@ -45,9 +77,21 @@ const PSCup = ({ item, index  }) => {
           }}
         >
           {item.ps_link.map((problem, index) => {
+            // console.log(releasedResults, item.ps_name[index])
+            if(releasedResults.includes(item.ps_name[index].trim().toLowerCase())) {
+              return (
+                <li key={index}>
+                <PSResultComponent
+                  title={item.ps_name[index]}
+                  result_link={item.ps_name[index].trim().toLowerCase().replaceAll(' ', '-')}
+                  link={problem}
+                  winner = {winnerList[item.ps_name[index].trim().toLowerCase()]}
+                />
+              </li>
+              )
+            }
             return (
               <li key={index}>
-                {console.log(item.ps_link[index])}
                 <PSComponent
                   title={item.ps_name[index]}
                   date={item.ps_date[index]}

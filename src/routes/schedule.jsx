@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import sanityClient from "../client";
 import moment from "moment";
+import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 
 export default function Schedule() {
   const [schedule, setSchedule] = useState();
+  const [kritiResult, setKritiResult] = useState([])
 
   useEffect(() => {
     sanityClient
@@ -19,7 +21,25 @@ export default function Schedule() {
       )
       .then((data) => setSchedule(data))
       .catch(console.error);
+    sanityClient
+      .fetch(
+        `*[_type == "ps_points_table"]{
+                    ps_name,
+                    points,
+                }`
+      )
+      .then((data) => setKritiResult(data))
+      .catch(console.error);
   }, []);
+
+  const releasedResults = useMemo(() => {
+    if (!kritiResult) return [];
+
+    return kritiResult.map((item, i) => {
+      return item.ps_name.trim().toLowerCase()
+    })
+  }, [kritiResult])
+
   function compare(a, b) {
     if (a.event_date < b.event_date) {
       return -1;
@@ -52,7 +72,7 @@ export default function Schedule() {
                 Event Name
               </th>
               <th scope='col' className='px-3 md:px-6 py-4 '>
-                Date
+                Date/Result
               </th>
               <th scope='col' className='px-3 md:px-6 py-4 '>
                 Cup
@@ -75,9 +95,14 @@ export default function Schedule() {
                   <td className=' px-3 md:px-6 py-4 max-w-[5rem] whitespace-normal'>
                     {ps_event.event_name}
                   </td>
-                  <td className=' px-3 md:px-6 py-4'>
-                    {moment(ps_event.event_date).format("Do MMM YY")}
-                  </td>
+                  {releasedResults.includes(ps_event.event_name.trim().toLowerCase()) ?
+                    <td className=' px-3 md:px-6 py-4'>
+                      <Link to={`/points-table/${ps_event.event_name.trim().toLowerCase().replaceAll(' ', '-')}`}><p className="text-blue-500 underline">Check Result</p></Link>
+                    </td> :
+                    <td className=' px-3 md:px-6 py-4'>
+                      {moment(ps_event.event_date).format("Do MMM YY")}
+                    </td>
+                  }
                   <td className=' px-3 md:px-6 py-4'>{ps_event.event_cup}</td>
                   <td className='py-4'>{ps_event.event_points}</td>
                 </tr>

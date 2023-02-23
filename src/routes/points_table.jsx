@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHref, useParams } from "react-router-dom";
 import sanityClient from "../client";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
@@ -6,28 +7,49 @@ import Navbar from "../components/navbar";
 
 export default function PointsTable() {
 
-    const [hostels, setHostels] = useState();
-    const [hostelMapping, setHostelMapping] = useState();
+    const [hostels, setHostels] = useState();    
+    const [title, setTitle] = useState('Points Table')
+    
+    const {id} = useParams();
 
     useEffect(() => {
-        sanityClient
+
+        if(!id){
+         sanityClient
             .fetch(
                 `*[_type == "points_table"]{
                     hostel_name,
                     hostel_points,
                 }`
             )
-            .then((data) => setHostels(data))
+            .then((data) => {setHostels(data); console.log(data)})
             .catch(console.error);
-        sanityClient
+        }
+        else {
+            sanityClient
             .fetch(
                 `*[_type == "ps_points_table"]{
                     ps_name,
-                    hostel_points,
+                    points,
                 }`
             )
-            .then((data) => setHostelMapping(data))
+            .then((data) => {
+                data = data.filter((item)=>{
+                    return item.ps_name.toLowerCase().trim().replaceAll(' ', '-') === id
+                })
+                if(data.length === 0) {
+                    setHostels([{
+                        hostel_name: "Result yet to be declared",
+                        hostel_points: '-'
+                    }])
+                }
+                data = data[0]
+                setTitle(data.ps_name)
+                setHostels(data.points)
+            })
             .catch(console.error);
+        }
+        
     }, []);
 
     function compare(a, b) {
@@ -62,14 +84,9 @@ export default function PointsTable() {
 
     return (
         <div className='min-h-screen bg-customBlue-100 flex flex-col'>
-            {hostelMapping  && hostelMapping.map((item) => (
-                item.hostel_points.map((itemss) =>{
-                    console.log(itemss)
-                })
-            ))}
         <Navbar />
         <div style={{ margin: "3%" }} className='flex-1'>
-            <h1 className="text-xl md:text-3xl customBlue-300 font-bold">Points Table - KRITI (2023) :-</h1>
+            <h1 className="text-xl md:text-3xl customBlue-300 font-bold">{title} - KRITI (2023) :-</h1>
             <br />
             <table style={{ borderStyle: "solid", borderColor: "#032538", borderWidth: 2, borderRadius: 1 }} className="min-w-full">
                 <thead style={{ backgroundColor: "#032538", color: "#EFEFEF" }}>

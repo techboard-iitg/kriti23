@@ -6,6 +6,7 @@ import "./scrollbar-hide.css";
 import DownArrow from "../assets/down-arrow.svg";
 import sanityClient from "../client";
 import PSCup from "../components/ps-cup";
+import { useMemo } from "react";
 
 const ProblemStatement = () => {
   const cupsName = ["Brainiac Cup", "Da Vinci Cup", "Business Cup"];
@@ -14,6 +15,7 @@ const ProblemStatement = () => {
   const [daVinci, setDaVinci] = useState();
   const [business, setBusiness] = useState();
   const [visionary, setVisionary] = useState();
+  const [kritiResult, setKritiResult] = useState([])
 
 
 
@@ -71,14 +73,23 @@ const ProblemStatement = () => {
         )
         .then((data) => setDaVinci(data))
         .catch(console.error);
+        sanityClient
+            .fetch(
+                `*[_type == "ps_points_table"]{
+                    ps_name,
+                    points,
+                }`
+            )
+            .then((data) => setKritiResult(data))
+            .catch(console.error);
   }, []);
+
 
   return (
     <div className='min-h-screen bg-customBlue-100 flex flex-col max-w-[100vw] overflow-hidden'>
       <div className='sticky top-0 z-10'>
         <Navbar />
       </div>
-      {console.log(brainiac)}
       <div className='flex-1'>
         <div
           style={{
@@ -155,7 +166,7 @@ const ProblemStatement = () => {
               {selectedCup == 0 &&
                 brainiac &&
                 brainiac.map((item, index) => {
-                  return <PSCup item={item} index={index} />;
+                  return <PSCup item={item} index={index} kritiResult={kritiResult} />;
                 })}
               {/* {selectedCup ==1 && visionary && 
               visionary.map((item,index)=>{
@@ -167,12 +178,12 @@ const ProblemStatement = () => {
               {selectedCup == 1 &&
                 daVinci &&
                 daVinci.map((item, index) => {
-                  return <PSCup item={item} index={index} />;
+                  return <PSCup item={item} index={index} kritiResult={kritiResult}/>;
                 })}
               {selectedCup == 2 &&
                 business &&
                 business.map((item, index) => {
-                  return <PSCup item={item} index={index} />;
+                  return <PSCup item={item} index={index} kritiResult={kritiResult} />;
                 })}
             </div>
           </div>

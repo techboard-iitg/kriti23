@@ -10,7 +10,7 @@ export default {
         },
         {
             title: 'Hostel Points',
-            name: 'hostel_points',
+            name: 'points',
             type: 'array',
             of:[
                 {
@@ -42,7 +42,7 @@ export default {
                         },
                         {
                             type: 'number',
-                            name: 'points'
+                            name: 'hostel_points'
                         }
                     ]
                 }
